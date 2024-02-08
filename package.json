@@ -1,0 +1,21 @@
+{
+  "name": "ndserver",
+  "version": "1.0.0",
+  "description": "Lumipuntari ohjelma",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "Lumipuntari",
+    "JS",
+    "Converter"
+  ],
+  "author": "Jani Pekkala",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "modules": "^0.4.0"
+  }
+}
