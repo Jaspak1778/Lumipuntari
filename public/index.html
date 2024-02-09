@@ -1,46 +1,65 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lumipuntari</title>
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
     <center>
-        <h2 style="font-family: corbel light">Lumipuntari ohjelma</h2>
+        <h2>Lumipuntari ohjelma</h2>
         <p>Aseta putken koko sekä luminäytteiden painot</p>
         <p>Putken koko millimetreinä sekä näyte grammoina</p>
+        <a href="https://www.ely-keskus.fi/documents/10191/57298/Lumipuntari/">ELY keskuksen ohjeet</a>
         <br>
     </center>
-    <div style="font-family: corbel light; margin-left: 60px;" id="textbox1">
+
+    <div style="margin-left: 60px;" id="textbox1">
         <h3>Näytteet</h1>
+        <label for="kohde">Kohteen nimi</label>
+        <input name="kohde" id="kohde" type=""text size="4"><br><br>
+    </div>
+
+    <div style="margin-left: 60px;" id="textbox2">
         <label for="pipe">Putken koko</label>
         <input name="pipe" id="pipe" type="text" maxlength="3" size="1" onchange="SetPipeSize()"><br><br>
     </div>
-    <div style="font-family: corbel light; margin-left: 60px;" id="textbox2">
-        <label for="nayte1">Näyte 1</label>
-        <input name="nayte1" id="nayte1" type="text" maxlength="4" size="4" onchange="nayte()"><br><br><output id="tulos">
-    </div>
 
+    <div style="margin-left: 60px;" id="textbox3">
+        <label for="nayte1">Lumen paino grammoina (1000g = 1kg) </label>
+        <input name="nayte1" id="nayte1" type="text" maxlength="4" size="4"><br><br>
+        <button onclick="nayte()">Laske</button>
+    </div>
+    <p style="margin-left: 60px;" id="tähän">Tulokset: </p>
     <script>
+
+        var i = 0
         function SetPipeSize() {
-            var putki = document.getElementById("pipe").value;
+            let putki = document.getElementById("pipe").value;
             
             return putki
         }
         function nayte() {
-            var nayte_paino = document.getElementById("nayte1").value;
-            var putki = SetPipeSize()
+            let nayte_paino = document.getElementById("nayte1").value;
+            let putki = SetPipeSize();
+            var kohde = document.getElementById("kohde").value;
             
             //laskukaava
-            var r = putki / 2;
-            var putken_pinta_ala = 3.14 * (r ** 2);
-            var lumen_paino = nayte_paino / putken_pinta_ala;
-            var tulos = lumen_paino * 1000 ;
-            document.getElementById("tulos").innerHTML = tulos.toFixed(2);
-            //alert("Näyte 1: " + lumen_paino)
+            let r = putki / 2;
+            let putken_pinta_ala = 3.14 * (r ** 2);
+            let lumen_paino = nayte_paino / putken_pinta_ala;
+            let tulos = lumen_paino * 1000 ;
+            
+            i++;
+            let t = document.createElement("h4");
+            let h = document.createTextNode("Näyte " + " " + i + " " + " " + kohde + ": " + tulos.toFixed(2) + " kg/m2");
+            t.appendChild(h);
+            document.getElementById("tähän").appendChild(t);
+
+            //document.getElementById("tulos").innerHTML = tulos.toFixed(2);
+
         }
     </script>
 </body>
