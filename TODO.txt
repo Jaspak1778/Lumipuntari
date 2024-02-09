@@ -2,6 +2,7 @@ Projektin aloitus - ok
 Perus html hahmottelu - ok
 script osio - työn alla
 Laskenta kaava funktion teko - ok
+Mobiili version toiminnallisuus/käytettävyys - 
 Useamman rivin tulos näyttö - 
 Exportoitava taulukko - 
 Loppu muotoilut - 
